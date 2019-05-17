@@ -27,10 +27,10 @@ if(!isset($_SESSION['id'])){
                 </div>
                 <?php
 
-                    /*  compareTokens() method of the token class is called which will compare the recieved token with the saved token
+                    /*  compareTokens() method of the token class will compare the recieved token with the saved token
                         corresponding to the session cookie
                     */ 
-                    if(token::compareTokens($_POST['token'], $_COOKIE['sessionID'])){
+                    if(token::compareTokens($_POST['token_to_be_added'], $_COOKIE['sessionID'])){
                         echo "<h3><b><font color='green'> Valid request. Status Updated Successfully! : <br>".$_POST['status']."</h3>";		
                     }
                     else{
@@ -38,6 +38,10 @@ if(!isset($_SESSION['id'])){
                     }
                 ?>
                 <br><br>
+                
+                <div id="formFooter">
+                <a href="logout.php"><input type="button" class="fadeIn fourth" name="logout" value="Log out"></a>
+                </div>
                 
             </div>
         </div>

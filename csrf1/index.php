@@ -10,7 +10,8 @@ if(isset($_POST['username'],$_POST['password'])){
 
 	if($uname == 'user' && $pwd == 'csrf1'){
         session_start();
-        $_SESSION['id'] = session_id();                 //generating session identifier
+
+        $_SESSION['id'] = session_id();      //generate session identifier
         $_SESSION['token'] = token::generateToken();    //generating token using generateToken() method of the token class
 
         setcookie('sessionID', $_SESSION['id'], time() + (86400 * 30), "/");    //setting cookie with session ID valid for 30 days
